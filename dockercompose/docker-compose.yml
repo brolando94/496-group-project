@@ -20,7 +20,7 @@ services:
             - "8080:80"
         restart: always
         env_file: 
-            -web.env
+            - web.env
         networks: 
             - projectNetwork
             
