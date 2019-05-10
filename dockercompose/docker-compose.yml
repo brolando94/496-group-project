@@ -5,8 +5,8 @@ services:
         image: mariadb/server:latest
         container_name: mariadbtest
         expose:
-            -"3306"
-            -"80"
+            - "3306"
+            - "80"
         restart: always
         env_file: 
             - db.env
