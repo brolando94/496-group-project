@@ -4,6 +4,9 @@ services:
     db: 
         image: mariadb/server:latest
         container_name: mariadbtest
+        expose:
+            -"3306"
+            -"80"
         restart: always
         env_file: 
             - db.env
@@ -16,8 +19,9 @@ services:
         depends_on: 
             - db
         container_name: webServer
-        ports: 
-            - "8080:80"
+        expose: 
+            - "80"
+            - "3306"
         restart: always
         env_file: 
             - web.env
