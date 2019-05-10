@@ -1,33 +1,24 @@
-version '3'
+version: '3.1'
 
 services: 
     db: 
         image: mariadb/server:latest
         container_name: mariadbtest
         restart: always
-        eviroment: 
-            MYSQL_ROOT_PASWORD="mypass"
-            MYSQL_DATABASE: project
-            MYSQL_USER: student
-            MYSQL_PASSWORD: student
         networks: 
-            -projectNetwork
+            - projectNetwork
             
     web: 
         image: apache:latest
         build: ./webapp
         depends_on: 
-            -db
-        container_name:webServer
+            - db
+        container_name: webServer
         ports: 
-            -"8080:80"
+            - "8080:80"
         restart: always
-        enviroment: 
-            MYSQL_DB_HOST: db:3306
-            MYSQL_DB_USER: student
-            MYSQL_DB_PASSWORD: student
         networks: 
-            -projectNetwork
+            - projectNetwork
             
-NETWORKS: 
+networks: 
     projectNetwork: 
