@@ -13,7 +13,7 @@ services:
             - projectNetwork
             
     web: 
-        image: apache:latest
+        image: ubuntu:latest
         build: ./webapp
         depends_on: 
             - db
