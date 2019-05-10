@@ -6,8 +6,6 @@ services:
         container_name: mariadbtest
         expose:
             - "3306"
-        ports: 
-            - "80"
         restart: always
         env_file: 
             - db.env
@@ -20,6 +18,8 @@ services:
         depends_on: 
             - db
         container_name: webServer
+        ports: 
+            - "80"
         restart: always
         env_file: 
             - web.env
