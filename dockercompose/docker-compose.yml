@@ -5,6 +5,8 @@ services:
         image: mariadb/server:latest
         container_name: mariadbtest
         restart: always
+        env_file: 
+            - db.env
         networks: 
             - projectNetwork
             
@@ -17,6 +19,8 @@ services:
         ports: 
             - "8080:80"
         restart: always
+        env_file: 
+            -web.env
         networks: 
             - projectNetwork
             
